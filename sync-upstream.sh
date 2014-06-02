@@ -1,7 +1,8 @@
 #!/bin/sh
 
-git checkout master
+UPSTREAM=robbyrussell
 
-git fetch robbyrussell master
-
-git rebase robbyrussell/master
+git checkout master \
+  && git fetch $UPSTREAM master \
+  && git rebase $UPSTREAM/master \
+  && echo "Sync complete. Use git push (--force) to update origin."
